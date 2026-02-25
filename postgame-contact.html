@@ -405,7 +405,7 @@
 
       <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);font-size:13px;color:rgba(255,255,255,0.25);line-height:1.6;">
         Already on the app? Questions about your account?<br>
-        <a href="mailto:athletes@postgame.com" style="color:var(--orange);text-decoration:none;font-weight:600;">athletes@postgame.com</a>
+        <a href="/cdn-cgi/l/email-protection#4e2f3a26222b3a2b3d0e3e213d3a292f232b602d2123" style="color:var(--orange);text-decoration:none;font-weight:600;"><span class="__cf_email__" data-cfemail="d6b7a2bebab3a2b3a596a6b9a5a2b1b7bbb3f8b5b9bb">[email&#160;protected]</span></a>
       </div>
     </div>
   </div>
@@ -430,7 +430,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function switchPanel(type, btn) {
     document.querySelectorAll('.who-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -447,12 +447,3 @@
   }
 
   // Pre-select from URL param e.g. ?type=creator or ?type=athlete
-  const t = new URLSearchParams(window.location.search).get('type');
-  if (t === 'creator' || t === 'athlete') {
-    const btn = document.querySelector(`.who-btn[onclick*="${t}"]`);
-    if (btn) switchPanel(t, btn);
-  }
-</script>
-
-</body>
-</html>
