@@ -184,7 +184,7 @@
   <ul class="nav-links">
     <li class="nav-item">
       <a href="postgame-clients.html">Brands <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-      <div class="nav-dropdown"><a href="postgame-clients.html" class="nav-drop-item">Clients</a><a href="postgame-campaign-recap.html" class="nav-drop-item">Campaigns</a></div>
+      <div class="nav-dropdown"><a href="postgame-clients.html" class="nav-drop-item">Clients</a><a href="postgame-campaigns.html" class="nav-drop-item">Campaigns</a></div>
     </li>
     <li class="nav-item">
       <a href="postgame-services-elevated.html">Services <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -405,7 +405,7 @@
 
       <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);font-size:13px;color:rgba(255,255,255,0.25);line-height:1.6;">
         Already on the app? Questions about your account?<br>
-        <a href="/cdn-cgi/l/email-protection#e687928e8a83928395a69689959281878b83c885898b" style="color:var(--orange);text-decoration:none;font-weight:600;"><span class="__cf_email__" data-cfemail="0263766a6e6776677142726d717665636f672c616d6f">[email&#160;protected]</span></a>
+        <a href="mailto:athletes@postgame.com" style="color:var(--orange);text-decoration:none;font-weight:600;">athletes@postgame.com</a>
       </div>
     </div>
   </div>
@@ -420,7 +420,7 @@
         <p class="footer-brand-desc">The #1 NIL agency in the country. Connecting elite college athletes with the world's most ambitious brands.</p>
       </div>
       <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="postgame-team.html">About</a></li><li><a href="postgame-services-elevated.html">Services</a></li><li><a href="postgame-team.html">Our Team</a></li><li><a href="postgame-contact.html">Contact</a></li></ul></div>
-      <div><div class="footer-col-title">Network</div><ul class="footer-links"><li><a href="postgame-clients.html">Clients</a></li><li><a href="postgame-campaign-recap.html">Campaigns</a></li><li><a href="postgame-tier1-tracker.html">Deal Tracker</a></li><li><a href="postgame-player-spotlight.html">Player Spotlight</a></li></ul></div>
+      <div><div class="footer-col-title">Network</div><ul class="footer-links"><li><a href="postgame-clients.html">Clients</a></li><li><a href="postgame-campaigns.html">Campaigns</a></li><li><a href="postgame-tier1-tracker.html">Deal Tracker</a></li><li><a href="postgame-player-spotlight.html">Player Spotlight</a></li></ul></div>
       <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">LinkedIn</a></li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -430,7 +430,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function switchPanel(type, btn) {
     document.querySelectorAll('.who-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -447,3 +447,12 @@
   }
 
   // Pre-select from URL param e.g. ?type=creator or ?type=athlete
+  const t = new URLSearchParams(window.location.search).get('type');
+  if (t === 'creator' || t === 'athlete') {
+    const btn = document.querySelector(`.who-btn[onclick*="${t}"]`);
+    if (btn) switchPanel(t, btn);
+  }
+</script>
+
+</body>
+</html>
