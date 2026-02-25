@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · Postgame</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+  :root {
+    --orange: #D73F09;
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray: #111111;
+    --gray-mid: #1a1a1a;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'DM Sans', Arial, sans-serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .logo { display: flex; align-items: center; gap: 4px; text-decoration: none; }
+  .logo-text { font-weight: 600; font-size: 22px; color: var(--white); letter-spacing: -0.5px; }
+  .logo-plus { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--orange); border-radius: 50%; color: white; font-weight: 700; font-size: 14px; margin: 0 1px; }
+  .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+  .nav-item { position: relative; }
+  .nav-item > a { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; padding: 10px 16px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  .nav-item > a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+  .nav-chevron { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+  .nav-item:hover .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown { position: absolute; top: calc(100% + 8px); left: 0; min-width: 160px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: all 0.2s; box-shadow: 0 16px 40px rgba(0,0,0,0.6); z-index: 200; }
+  .nav-item:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+  .nav-drop-item { display: block; padding: 12px 18px; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; transition: all 0.15s; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .nav-drop-item:last-child { border-bottom: none; }
+  .nav-drop-item:hover { background: rgba(255,255,255,0.05); color: var(--white); padding-left: 22px; }
+  .nav-drop-item.active { color: var(--orange); }
+  .btn-primary { background: var(--orange); color: var(--white); border: none; border-radius: 8px; padding: 14px 28px; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: #c03608; transform: translateY(-1px); }
+  .btn-tracker { background: var(--white); color: var(--black); border: none; border-radius: 8px; padding: 14px 24px; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .btn-tracker:hover { background: rgba(255,255,255,0.88); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 140px 48px 80px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Background: full-bleed split — left dark, right orange wash */
+  .hero-bg-left {
+    position: absolute;
+    top: 0; left: 0;
+    width: 60%;
+    bottom: 0;
+    background: #080808;
+  }
+
+  .hero-bg-right {
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    bottom: 0;
+    background: linear-gradient(135deg, #1a0800 0%, #0a0a0a 100%);
+  }
+
+  /* Faint diagonal rule between the two halves */
+  .hero-divider {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 58%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(215,63,9,0.2) 40%, rgba(215,63,9,0.2) 60%, transparent);
+    transform: skewX(-4deg);
+  }
+
+  /* Large ghosted text */
+  .hero-ghost {
+    position: absolute;
+    bottom: -30px;
+    left: 40px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: clamp(140px, 20vw, 260px);
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--orange); }
+
+  .hero-title {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: clamp(64px, 9vw, 128px);
+    line-height: 0.88;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+
+  .hero-title span { color: var(--orange); }
+
+  .hero-founding {
+    font-size: 14px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Right side — founding statement + stats */
+  .hero-right {}
+
+  .hero-statement {
+    font-size: clamp(18px, 2.2vw, 24px);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  .hero-statement strong { color: rgba(255,255,255,0.88); font-weight: 600; }
+  .hero-statement em { font-style: italic; color: rgba(255,255,255,0.45); }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    background: rgba(255,255,255,0.02);
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .stat-val {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 44px;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-val .unit { color: var(--orange); }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+
+  /* ── MISSION ── */
+  .mission-wrap {
+    background: #0a0a0a;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .mission-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .mission-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mission-label::before { content: ''; width: 16px; height: 1px; background: var(--orange); }
+
+  .mission-title {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: clamp(40px, 4vw, 56px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 0;
+    position: sticky;
+    top: 100px;
+  }
+
+  .mission-body { display: flex; flex-direction: column; gap: 32px; }
+
+  .mission-block {
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .mission-block:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .mission-block-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 12px;
+  }
+
+  .mission-block-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .mission-block-text strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  /* ── TEAM ── */
+  .team-wrap {
+    background: var(--black);
+    padding: 100px 0;
+  }
+
+  .team-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .team-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before { content: ''; width: 16px; height: 1px; background: var(--orange); }
+
+  .section-title {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  /* Team grid — 2 columns, large cards */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .team-card {
+    background: var(--gray);
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    transition: border-color 0.2s;
+  }
+
+  .team-card:hover { border-color: rgba(215,63,9,0.15); }
+
+  /* Portrait */
+  .team-portrait {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--gray-mid);
+  }
+
+  .team-portrait-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    transition: transform 0.6s ease;
+  }
+
+  .team-card:hover .team-portrait-bg { transform: scale(1.04); }
+
+  .team-portrait-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, rgba(0,0,0,0.3));
+  }
+
+  /* Name over portrait bottom */
+  .team-portrait-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+  }
+
+  /* Card body */
+  .team-body {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .team-title-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(215,63,9,0.1);
+    border: 1px solid rgba(215,63,9,0.2);
+    border-radius: 100px;
+    font-size: 10px;
+    color: var(--orange);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .team-name {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .team-role {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .team-bio {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.75;
+    flex-grow: 1;
+    margin-bottom: 24px;
+  }
+
+  .team-bio strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+
+  .team-social {
+    display: flex;
+    gap: 8px;
+  }
+
+  .team-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    transition: all 0.2s;
+  }
+
+  .team-social-link:hover { background: rgba(215,63,9,0.1); border-color: rgba(215,63,9,0.2); color: var(--orange); }
+
+  /* Founder card — full width, special treatment */
+  .team-card.founder {
+    grid-column: 1 / -1;
+    grid-template-columns: 320px 1fr;
+  }
+
+  .team-card.founder .team-portrait { aspect-ratio: unset; min-height: 380px; }
+  .team-card.founder .team-name { font-size: 52px; }
+  .team-card.founder .team-bio { font-size: 15px; }
+
+  /* Portrait color swatches */
+  .p-1 { background: linear-gradient(160deg, #1a0e0a, #2d1a10); }
+  .p-2 { background: linear-gradient(160deg, #0a0e1a, #101828); }
+  .p-3 { background: linear-gradient(160deg, #0a1a0e, #101e14); }
+  .p-4 { background: linear-gradient(160deg, #1a0a1a, #200e20); }
+  .p-5 { background: linear-gradient(160deg, #1a1a0a, #201e10); }
+  .p-6 { background: linear-gradient(160deg, #0a1a1a, #0e1e20); }
+
+  /* Initials placeholder */
+  .portrait-initials {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 72px;
+    color: rgba(255,255,255,0.07);
+    letter-spacing: 0.04em;
+  }
+
+  .team-card.founder .portrait-initials { font-size: 100px; }
+
+  /* ── CTA ── */
+  .cta-wrap {
+    background: var(--gray);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 100px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .cta-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+  .cta-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .cta-label::before { content: ''; width: 16px; height: 1px; background: var(--orange); }
+  .cta-title { font-family: 'Bebas Neue', Arial, sans-serif; font-size: clamp(40px, 5vw, 68px); color: var(--white); line-height: 0.92; letter-spacing: 0.01em; margin-bottom: 20px; }
+  .cta-sub { font-size: 16px; color: rgba(255,255,255,0.35); line-height: 1.7; }
+  .cta-sub strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+
+  .cta-btns { display: flex; flex-direction: column; gap: 12px; justify-content: center; }
+  .btn-cta-main { background: var(--orange); color: var(--white); border: none; border-radius: 10px; padding: 18px 36px; font-family: 'DM Sans', Arial, sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: all 0.2s; letter-spacing: 0.02em; }
+  .btn-cta-main:hover { background: #c03608; transform: translateY(-1px); }
+  .btn-cta-sec { background: transparent; color: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 36px; font-family: 'DM Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: all 0.2s; }
+  .btn-cta-sec:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+
+  /* FOOTER */
+  footer { background: var(--gray); border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 48px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+  .footer-brand-desc { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; margin-top: 16px; max-width: 280px; }
+  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 24px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); }
+  .footer-socials { display: flex; gap: 24px; }
+  .footer-socials a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-socials a:hover { color: var(--orange); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { animation: fadeUp 0.5s ease 0.1s both; }
+  .hero-title { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-founding { animation: fadeUp 0.5s ease 0.3s both; }
+  .hero-statement { animation: fadeUp 0.5s ease 0.25s both; }
+  .stat-row { animation: fadeUp 0.5s ease 0.4s both; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="postgame-homepage.html" class="logo"><span class="logo-text">p</span><span class="logo-plus">+</span><span class="logo-text">stgame</span></a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="postgame-brand-profile.html">Brands <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-dropdown"><a href="postgame-brand-profile.html" class="nav-drop-item">Clients</a><a href="postgame-campaign-recap.html" class="nav-drop-item">Campaigns</a></div>
+    </li>
+    <li class="nav-item">
+      <a href="postgame-services-elevated.html">Services <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="postgame-services-elevated.html" class="nav-drop-item">Elevated</a>
+        <a href="postgame-services-scaled.html" class="nav-drop-item">Scaled</a>
+        <a href="postgame-services-experiential.html" class="nav-drop-item">Experiential</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a href="postgame-team.html">About <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="postgame-press.html" class="nav-drop-item">Press</a>
+        <a href="postgame-case-studies.html" class="nav-drop-item">Case Studies</a>
+        <a href="postgame-team.html" class="nav-drop-item active">Our Team</a>
+      </div>
+    </li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="postgame-tier1-tracker.html" class="btn-tracker">Tier 1 Deal Tracker</a>
+    <a href="postgame-contact.html" class="btn-primary">Work With Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-left"></div>
+  <div class="hero-bg-right"></div>
+  <div class="hero-divider"></div>
+  <div class="hero-ghost">POSTGAME</div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">About Us</div>
+      <h1 class="hero-title">We Exist<br>For The<br><span>Athlete.</span></h1>
+      <div class="hero-founding">Founded 2022 · Nashville, TN</div>
+    </div>
+
+    <div>
+      <p class="hero-statement">
+        Postgame was built on a single belief: <strong>college athletes have always been worth more than they were allowed to earn.</strong> NIL changed the rules. <em>We help athletes and brands make the most of that.</em>
+      </p>
+      <div class="stat-row">
+        <div class="stat-cell">
+          <div class="stat-val">2<span class="unit">K+</span></div>
+          <div class="stat-label">Athletes</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">340<span class="unit">+</span></div>
+          <div class="stat-label">Deals Closed</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">24</div>
+          <div class="stat-label">Sports</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<div class="mission-wrap">
+  <div class="mission-inner">
+    <div>
+      <div class="mission-label">Our Mission</div>
+      <h2 class="mission-title">Why We Do This</h2>
+    </div>
+
+    <div class="mission-body">
+      <div class="mission-block">
+        <div class="mission-block-label">The Problem We Saw</div>
+        <p class="mission-block-text">For decades, college athletics was one of the most valuable media properties in America — and the people making it valuable got nothing. <strong>Athletes built audiences, drove TV deals, sold jerseys, and filled stadiums</strong> while brands and institutions captured all the value. NIL ended that. But most athletes still have no idea how to monetize what they've built, and most brands have no idea how to work with them at scale.</p>
+      </div>
+
+      <div class="mission-block">
+        <div class="mission-block-label">What We Do About It</div>
+        <p class="mission-block-text">Postgame sits in the middle. We know athletes — their audiences, their values, what makes a deal feel right and what makes it feel hollow. And we know brands — what they actually need from an NIL activation, what "authentic" actually means in practice, and how to make content that performs. <strong>We connect those two worlds</strong> and make sure both sides win.</p>
+      </div>
+
+      <div class="mission-block">
+        <div class="mission-block-label">What We Believe</div>
+        <p class="mission-block-text">The best NIL deals are relationships, not transactions. A brand that genuinely fits an athlete's identity creates content that their audience trusts. <strong>That trust is worth more than any paid media placement</strong> — and it's worth more to the athlete's career too. We take that seriously in every deal we make.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-wrap">
+  <div class="team-inner">
+    <div class="team-header">
+      <div>
+        <div class="section-label">The Team</div>
+        <h2 class="section-title">The People Behind It</h2>
+      </div>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- FOUNDER — full width -->
+      <div class="team-card founder">
+        <div class="team-portrait">
+          <div class="team-portrait-bg p-1"></div>
+          <div class="portrait-initials">MR</div>
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-body">
+          <div>
+            <span class="team-title-tag">Founder & CEO</span>
+            <div class="team-name">Marcus Reid</div>
+            <div class="team-role">Founder & Chief Executive Officer</div>
+            <p class="team-bio">Marcus played four years of college football at Vanderbilt before spending a decade in sports marketing, most recently as VP of Athlete Partnerships at a major Nashville-based agency. <strong>He founded Postgame in 2022 after watching NIL launch with almost no infrastructure</strong> to actually support athletes or help brands navigate the new landscape. His thesis: the agencies built for the old world weren't going to get the new one right. Postgame was built from scratch for what NIL actually is — not what the industry wished it were.<br><br>Marcus sets the direction for every major client relationship at Postgame and leads the Elevated team personally.</p>
+          </div>
+          <div class="team-social">
+            <a href="#" class="team-social-link" title="LinkedIn">in</a>
+            <a href="#" class="team-social-link" title="Twitter">𝕏</a>
+            <a href="#" class="team-social-link" title="Instagram">✦</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="team-card">
+        <div class="team-portrait">
+          <div class="team-portrait-bg p-2"></div>
+          <div class="portrait-initials">JC</div>
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-body">
+          <div>
+            <span class="team-title-tag">Co-Founder</span>
+            <div class="team-name">Jordan Cole</div>
+            <div class="team-role">Co-Founder & Chief Operating Officer</div>
+            <p class="team-bio">Jordan brings the operational backbone. Before Postgame, she spent six years building creator monetization programs at two major social platforms. <strong>She architected the systems that let Postgame run 500-athlete campaigns</strong> without dropping quality or brand safety. If it scales, Jordan built the process behind it.</p>
+          </div>
+          <div class="team-social">
+            <a href="#" class="team-social-link" title="LinkedIn">in</a>
+            <a href="#" class="team-social-link" title="Twitter">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="team-card">
+        <div class="team-portrait">
+          <div class="team-portrait-bg p-3"></div>
+          <div class="portrait-initials">TW</div>
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-body">
+          <div>
+            <span class="team-title-tag">Brand Partnerships</span>
+            <div class="team-name">Tyler Washington</div>
+            <div class="team-role">Head of Brand Partnerships</div>
+            <p class="team-bio">Tyler leads all brand relationships at Postgame. He came up through the agency world working on experiential campaigns for Fortune 500 companies before pivoting to sports. <strong>He's closed deals with Nike, Gatorade, Amazon, and Red Bull</strong> and understands exactly what brand managers need to bring a campaign home internally.</p>
+          </div>
+          <div class="team-social">
+            <a href="#" class="team-social-link" title="LinkedIn">in</a>
+            <a href="#" class="team-social-link" title="Twitter">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="team-card">
+        <div class="team-portrait">
+          <div class="team-portrait-bg p-4"></div>
+          <div class="portrait-initials">AS</div>
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-body">
+          <div>
+            <span class="team-title-tag">Athlete Relations</span>
+            <div class="team-name">Aaliya Simmons</div>
+            <div class="team-role">Head of Athlete Relations</div>
+            <p class="team-bio">Aaliya was a two-sport athlete at Tennessee and understands the college experience from the inside. She manages all athlete relationships at Postgame — onboarding, deal negotiation, and ongoing support. <strong>Athletes trust her because she's been where they are.</strong> Brands trust her because she keeps every activation running on time and on brief.</p>
+          </div>
+          <div class="team-social">
+            <a href="#" class="team-social-link" title="LinkedIn">in</a>
+            <a href="#" class="team-social-link" title="Instagram">✦</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="team-card">
+        <div class="team-portrait">
+          <div class="team-portrait-bg p-5"></div>
+          <div class="portrait-initials">DM</div>
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-body">
+          <div>
+            <span class="team-title-tag">Creative</span>
+            <div class="team-name">Devon Marsh</div>
+            <div class="team-role">Creative Director</div>
+            <p class="team-bio">Devon leads creative strategy across all Postgame campaigns. He spent eight years directing content for major sports brands before joining full time, and now oversees the freelance production network that shoots every Postgame campaign. <strong>His eye is why our campaigns don't look like ads.</strong> They look like the athletes' own content — because Devon makes sure they are.</p>
+          </div>
+          <div class="team-social">
+            <a href="#" class="team-social-link" title="Instagram">✦</a>
+            <a href="#" class="team-social-link" title="Twitter">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="team-card">
+        <div class="team-portrait">
+          <div class="team-portrait-bg p-6"></div>
+          <div class="portrait-initials">RP</div>
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-body">
+          <div>
+            <span class="team-title-tag">Legal & Compliance</span>
+            <div class="team-name">Rachel Park</div>
+            <div class="team-role">General Counsel & Compliance Lead</div>
+            <p class="team-bio">Rachel is an attorney specializing in sports law and NIL compliance. She knows the rulebook at every major conference and keeps Postgame — and every athlete we work with — on the right side of it. <strong>She's reviewed every contract we've ever signed.</strong> When brands need clean, bulletproof NIL agreements, Rachel writes them.</p>
+          </div>
+          <div class="team-social">
+            <a href="#" class="team-social-link" title="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap" style="padding:0;">
+  <div class="cta-inner" style="padding:100px 48px;max-width:1200px;margin:0 auto;">
+    <div>
+      <div class="cta-label">Work With Us</div>
+      <h2 class="cta-title">Let's Build Something Together</h2>
+      <p class="cta-sub">Whether you're a <strong>brand ready to activate</strong> or a creator looking to join our production network — the conversation starts the same way.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="postgame-contact.html" class="btn-cta-main">Start a Conversation →</a>
+      <a href="postgame-campaign-recap.html" class="btn-cta-sec">See Our Work First</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="postgame-homepage.html" class="logo" style="display:inline-flex;margin-bottom:16px"><span class="logo-text">p</span><span class="logo-plus">+</span><span class="logo-text">stgame</span></a>
+        <p class="footer-brand-desc">The #1 NIL agency in the country. Connecting elite college athletes with the world's most ambitious brands.</p>
+      </div>
+      <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="postgame-team.html">About</a></li><li><a href="postgame-services-elevated.html">Services</a></li><li><a href="postgame-team.html">Our Team</a></li><li><a href="postgame-contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Network</div><ul class="footer-links"><li><a href="postgame-brand-profile.html">Clients</a></li><li><a href="postgame-campaign-recap.html">Campaigns</a></li><li><a href="postgame-tier1-tracker.html">Deal Tracker</a></li><li><a href="postgame-player-spotlight.html">Player Spotlight</a></li></ul></div>
+      <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Postgame. All rights reserved.</div>
+      <div class="footer-socials"><a href="postgame-privacy.html">Privacy</a><a href="postgame-terms.html">Terms</a><a href="postgame-contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
