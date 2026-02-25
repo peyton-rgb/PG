@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elevated — Services · Postgame</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
   :root {
     --orange: #D73F09;
@@ -20,7 +20,7 @@
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: #0a0a0a; color: var(--white); font-family: 'DM Sans', Arial, sans-serif; overflow-x: hidden; }
+  body { background: #0a0a0a; color: var(--white); font-family: Arial, Helvetica, sans-serif; overflow-x: hidden;  font-size:24px; line-height:1.4;}
 
   /* ── NAV ── */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
@@ -39,9 +39,9 @@
   .nav-drop-item:last-child { border-bottom: none; }
   .nav-drop-item:hover { background: rgba(255,255,255,0.05); color: var(--white); padding-left: 22px; }
   .nav-drop-item.active { color: var(--accent); }
-  .btn-primary { background: var(--orange); color: var(--white); border: none; border-radius: 8px; padding: 14px 28px; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-primary { background: var(--orange); color: var(--white); border: none; border-radius: 8px; padding: 16px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: #c03608; transform: translateY(-1px); }
-  .btn-tracker { background: var(--white); color: var(--black); border: none; border-radius: 8px; padding: 14px 24px; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .btn-tracker { background: var(--white); color: var(--black); border: none; border-radius: 8px; padding: 16px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
   .btn-tracker:hover { background: rgba(255,255,255,0.88); }
 
   /* ── HERO ── */
@@ -152,7 +152,7 @@
   }
 
   .hero-positioning {
-    font-size: 22px;
+    font-size: 24px;
     color: rgba(255,255,255,0.45);
     line-height: 1.5;
     font-weight: 300;
@@ -162,7 +162,7 @@
 
   .hero-positioning strong { color: rgba(255,255,255,0.85); font-weight: 600; }
 
-  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-ctas { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
 
   .btn-accent {
     background: var(--accent);
@@ -170,7 +170,7 @@
     border: none;
     border-radius: 8px;
     padding: 16px 32px;
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
@@ -187,7 +187,7 @@
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 8px;
     padding: 16px 32px;
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -280,9 +280,9 @@
   }
 
   .body-text {
-    font-size: 17px;
+    font-size: 24px;
     color: rgba(255,255,255,0.45);
-    line-height: 1.85;
+    line-height: 1.4;
   }
   .body-text strong { color: rgba(255,255,255,0.8); font-weight: 600; }
   .body-text p + p { margin-top: 20px; }
@@ -410,7 +410,7 @@
     backdrop-filter: blur(4px);
   }
 
-  .case-body { padding: 24px; }
+  .case-body { padding: 24px;  font-size:24px; line-height:1.4;}
 
   .case-tag {
     display: inline-block;
@@ -500,7 +500,7 @@
   .teaser-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%); }
   .teaser-sport { position: absolute; top: 10px; left: 10px; background: var(--accent); color: #000; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; }
 
-  .teaser-body { padding: 16px; }
+  .teaser-body { padding: 16px;  font-size:24px; line-height:1.4;}
   .teaser-name { font-family: 'Bebas Neue', Arial, sans-serif; font-size: 20px; color: var(--white); letter-spacing: 0.02em; margin-bottom: 2px; line-height: 1; }
   .teaser-school { font-size: 11px; color: rgba(255,255,255,0.25); margin-bottom: 8px; }
   .teaser-followers { font-family: 'Bebas Neue', Arial, sans-serif; font-size: 18px; color: rgba(255,255,255,0.4); }
@@ -531,21 +531,21 @@
   .cta-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; opacity: 0.7; }
   .cta-title { font-family: 'Bebas Neue', Arial, sans-serif; font-size: clamp(52px, 7vw, 88px); color: var(--white); line-height: 0.92; letter-spacing: 0.01em; margin-bottom: 20px; }
   .cta-sub { font-size: 17px; color: rgba(255,255,255,0.35); margin-bottom: 48px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cta-btns { margin-top: 8px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
   /* ── FOOTER ── */
   footer { background: var(--gray); border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 48px 32px; }
   .footer-inner { max-width: 1200px; margin: 0 auto; }
   .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
-  .footer-brand-desc { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; margin-top: 16px; max-width: 280px; }
-  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 24px; }
+  .footer-brand-desc { font-size: 18px; color: rgba(255,255,255,0.35); line-height: 1.2; margin-top: 16px; max-width: 280px; }
+  .footer-col-title { font-size: 18px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 24px; }
   .footer-links { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 18px; transition: color 0.2s; }
   .footer-links a:hover { color: var(--white); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; }
-  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); }
+  .footer-copy { font-size: 18px; color: rgba(255,255,255,0.2); }
   .footer-socials { display: flex; gap: 24px; }
-  .footer-socials a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-socials a { font-size: 18px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
   .footer-socials a:hover { color: var(--orange); }
 
   /* bg swatches */
@@ -563,8 +563,32 @@
   .hero-eyebrow { animation: fadeUp 0.5s ease 0.1s both; }
   .hero-title { animation: fadeUp 0.6s ease 0.2s both; }
   .hero-positioning { animation: fadeUp 0.5s ease 0.3s both; }
-  .hero-ctas { animation: fadeUp 0.5s ease 0.4s both; }
+  .hero-ctas { margin-top: 32px; animation: fadeUp 0.5s ease 0.4s both; }
   .hero-card { animation: fadeUp 0.6s ease 0.25s both; }
+
+  /* ── MOBILE TYPOGRAPHY ── */
+  @media (max-width: 768px) {
+    body { font-size: 14px !important; line-height: 1.4 !important; }
+    .hero-positioning, .hero-sub, .body-text, .recap-text,
+    .feature-text-body, .how-step-body, .case-desc,
+    .cta-sub { font-size: 14px !important; line-height: 1.4 !important; }
+    .hero-eyebrow, .section-label, .section-eyebrow { font-size: 10px !important; }
+    .nav-item > a, .nav-drop-item { font-size: 12px !important; }
+    .btn-primary, .btn-tracker, .btn-accent, .btn-ghost,
+    .btn-white, .btn-outline-white, .btn-dark, .btn-outline-dark,
+    .btn-sm { font-size: 13px !important; padding: 12px 24px !important; }
+    footer, .footer-links a, .footer-brand-desc, .footer-copy,
+    .footer-socials a, .footer-col-title { font-size: 11px !important; line-height: 1.2 !important; }
+    .hero-title { font-size: clamp(36px, 12vw, 64px) !important; }
+    .section-title { font-size: clamp(28px, 8vw, 40px) !important; }
+    .cta-title { font-size: clamp(36px, 10vw, 56px) !important; }
+    .campaign-card-title { font-size: 18px !important; }
+    .campaign-card-brand { font-size: 9px !important; }
+    .all-campaign-row { font-size: 13px !important; }
+    .acr-date, .acr-brand { font-size: 11px !important; }
+    .acr-name { font-size: 13px !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -583,6 +607,7 @@
         <a href="postgame-services-elevated.html" class="nav-drop-item active">Elevated</a>
         <a href="postgame-services-scaled.html" class="nav-drop-item">Scaled</a>
         <a href="postgame-services-experiential.html" class="nav-drop-item">Experiential</a>
+        <a href="postgame-services-always-on.html" class="nav-drop-item">Always On</a>
       </div>
     </li>
     <li class="nav-item">
@@ -609,6 +634,7 @@
         <a href="postgame-services-elevated.html" class="snav-pill active">Elevated</a>
         <a href="postgame-services-scaled.html" class="snav-pill">Scaled</a>
         <a href="postgame-services-experiential.html" class="snav-pill">Experiential</a>
+        <a href="postgame-services-always-on.html" class="snav-pill">Always On</a>
       </div>
 
       <div class="hero-eyebrow">Services</div>

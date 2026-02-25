@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Postgame — #1 NIL Agency</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
   :root {
     --orange: #D73F09;
@@ -23,7 +23,7 @@
   body {
     background: var(--black);
     color: var(--white);
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.4;
     overflow-x: hidden;
@@ -43,7 +43,7 @@
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .logo { display: flex; align-items: center; gap: 4px; text-decoration: none; }
-  .logo-text { font-family: 'DM Sans', Arial, sans-serif; font-weight: 600; font-size: 22px; color: var(--white); letter-spacing: -0.5px; }
+  .logo-text { font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 22px; color: var(--white); letter-spacing: -0.5px; }
   .logo-plus { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--orange); border-radius: 50%; color: white; font-weight: 700; font-size: 14px; margin: 0 1px; }
   .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
   .nav-item { position: relative; }
@@ -75,16 +75,16 @@
   }
   .nav-drop-item:last-child { border-bottom: none; }
   .nav-drop-item:hover { background: rgba(255,255,255,0.05); color: var(--white); padding-left: 22px; }
-  .btn-primary { background: var(--orange); color: var(--white); border: none; border-radius: 8px; padding: 14px 28px; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-primary { background: var(--orange); color: var(--white); border: none; border-radius: 8px; padding: 16px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: #c03608; transform: translateY(-1px); }
   .btn-tracker {
     background: var(--white);
     color: var(--black);
     border: none;
     border-radius: 8px;
-    padding: 14px 24px;
-    font-family: 'DM Sans', Arial, sans-serif;
-    font-size: 14px;
+    padding: 16px 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
     font-weight: 700;
     cursor: pointer;
     text-decoration: none;
@@ -100,7 +100,7 @@
     border: 2px solid var(--orange);
     border-radius: 8px;
     padding: 12px 28px;
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -118,7 +118,7 @@
     border: 2px solid rgba(255,255,255,0.2);
     border-radius: 8px;
     padding: 12px 28px;
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -218,14 +218,14 @@
   .hero-headline .accent { color: var(--orange); }
 
   .hero-sub {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 1.6;
     color: rgba(255,255,255,0.65);
     max-width: 460px;
     margin-bottom: 48px;
   }
 
-  .hero-ctas {
+  .hero-ctas { margin-top: 32px;
     display: flex;
     gap: 16px;
     align-items: center;
@@ -651,8 +651,8 @@
     color: var(--orange);
     border: none;
     border-radius: 8px;
-    padding: 16px 36px;
-    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 16px 32px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
@@ -668,8 +668,8 @@
     color: var(--white);
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 8px;
-    padding: 14px 36px;
-    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 16px 32px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -700,15 +700,15 @@
   }
 
   .footer-brand-desc {
-    font-size: 14px;
+    font-size: 18px;
     color: rgba(255,255,255,0.4);
-    line-height: 1.7;
+    line-height: 1.2;
     margin-top: 16px;
     max-width: 280px;
   }
 
   .footer-col-title {
-    font-size: 11px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -726,7 +726,7 @@
   .footer-links a {
     color: rgba(255,255,255,0.55);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     transition: color 0.2s;
   }
 
@@ -741,7 +741,7 @@
   }
 
   .footer-copy {
-    font-size: 13px;
+    font-size: 18px;
     color: rgba(255,255,255,0.25);
   }
 
@@ -751,7 +751,7 @@
   }
 
   .footer-socials a {
-    font-size: 13px;
+    font-size: 18px;
     color: rgba(255,255,255,0.35);
     text-decoration: none;
     transition: color 0.2s;
@@ -771,7 +771,31 @@
   .hero-eyebrow { animation: fadeUp 0.8s ease 0.2s both; }
   .hero-headline { animation: fadeUp 0.8s ease 0.4s both; }
   .hero-sub { animation: fadeUp 0.8s ease 0.55s both; }
-  .hero-ctas { animation: fadeUp 0.8s ease 0.7s both; }
+  .hero-ctas { margin-top: 32px; animation: fadeUp 0.8s ease 0.7s both; }
+
+  /* ── MOBILE TYPOGRAPHY ── */
+  @media (max-width: 768px) {
+    body { font-size: 14px !important; line-height: 1.4 !important; }
+    .hero-positioning, .hero-sub, .body-text, .recap-text,
+    .feature-text-body, .how-step-body, .case-desc,
+    .cta-sub { font-size: 14px !important; line-height: 1.4 !important; }
+    .hero-eyebrow, .section-label, .section-eyebrow { font-size: 10px !important; }
+    .nav-item > a, .nav-drop-item { font-size: 12px !important; }
+    .btn-primary, .btn-tracker, .btn-accent, .btn-ghost,
+    .btn-white, .btn-outline-white, .btn-dark, .btn-outline-dark,
+    .btn-sm { font-size: 13px !important; padding: 12px 24px !important; }
+    footer, .footer-links a, .footer-brand-desc, .footer-copy,
+    .footer-socials a, .footer-col-title { font-size: 11px !important; line-height: 1.2 !important; }
+    .hero-title { font-size: clamp(36px, 12vw, 64px) !important; }
+    .section-title { font-size: clamp(28px, 8vw, 40px) !important; }
+    .cta-title { font-size: clamp(36px, 10vw, 56px) !important; }
+    .campaign-card-title { font-size: 18px !important; }
+    .campaign-card-brand { font-size: 9px !important; }
+    .all-campaign-row { font-size: 13px !important; }
+    .acr-date, .acr-brand { font-size: 11px !important; }
+    .acr-name { font-size: 13px !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -797,6 +821,7 @@
         <a href="postgame-services-elevated.html" class="nav-drop-item">Elevated</a>
         <a href="postgame-services-scaled.html" class="nav-drop-item">Scaled</a>
         <a href="postgame-services-experiential.html" class="nav-drop-item">Experiential</a>
+        <a href="postgame-services-always-on.html" class="nav-drop-item">Always On</a>
       </div>
     </li>
     <li class="nav-item has-dropdown">
