@@ -57,23 +57,15 @@
 
   /* GRID */
   .grid-wrap{max-width:1400px;margin:0 auto;padding:48px 48px 80px;}
-  .brand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:2px;}
+  .brand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:2px;}
 
-  .brand-card{background:var(--gray);border:1px solid rgba(255,255,255,0.04);padding:32px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:all 0.2s;cursor:default;position:relative;overflow:hidden;aspect-ratio:1.4/1;}
+  .brand-card{background:var(--gray);border:1px solid rgba(255,255,255,0.04);padding:28px 20px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;cursor:pointer;position:relative;overflow:hidden;min-height:90px;text-decoration:none;}
   .brand-card::before{content:'';position:absolute;inset:0;background:rgba(215,63,9,0.05);opacity:0;transition:opacity 0.2s;}
   .brand-card:hover::before{opacity:1;}
   .brand-card:hover{border-color:rgba(215,63,9,0.2);}
 
-  .brand-logo-wrap{width:100%;height:52px;display:flex;align-items:center;justify-content:center;}
-  .brand-logo-wrap img{max-width:110px;max-height:44px;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.65;transition:opacity 0.2s;}
-  .brand-card:hover .brand-logo-wrap img{opacity:1;}
-  /* fallback for logos that fail to load */
-  .brand-logo-wrap img.logo-error{display:none;}
-  .brand-name-fallback{display:none;font-family:'Bebas Neue',Arial,sans-serif;font-size:18px;color:rgba(255,255,255,0.5);letter-spacing:0.05em;text-align:center;line-height:1.2;}
-  .brand-logo-wrap img.logo-error ~ .brand-name-fallback{display:block;}
-
-  .brand-name{font-size:11px;color:rgba(255,255,255,0.25);text-align:center;font-weight:500;letter-spacing:0.04em;}
-  .brand-card:hover .brand-name{color:rgba(255,255,255,0.5);}
+  .brand-name{font-family:'Bebas Neue',Arial,sans-serif;font-size:20px;color:rgba(255,255,255,0.45);text-align:center;letter-spacing:0.04em;line-height:1.15;transition:color 0.2s;}
+  .brand-card:hover .brand-name{color:rgba(255,255,255,0.9);}
 
   .coming-soon-badge{position:absolute;top:8px;right:8px;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(215,63,9,0.7);background:rgba(215,63,9,0.08);border:1px solid rgba(215,63,9,0.15);border-radius:4px;padding:2px 6px;}
 
@@ -166,412 +158,103 @@
   <div class="brand-grid" id="brandGrid">
 
     <!-- FOOD & BEVERAGE -->
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/1800flowers.com" alt="1-800-Flowers" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">1-800-Flowers</span></div>
-      <div class="brand-name">1-800-Flowers</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/7-eleven.com" alt="7-Eleven" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">7-Eleven</span></div>
-      <div class="brand-name">7-Eleven</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/biosteel.com" alt="BioSteel" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">BioSteel</span></div>
-      <div class="brand-name">BioSteel</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/goc4.com" alt="C4 Energy" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">C4 Energy</span></div>
-      <div class="brand-name">C4 Energy</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/cava.com" alt="CAVA" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">CAVA</span></div>
-      <div class="brand-name">CAVA</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/drinkbero.com" alt="Bero" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Bero</span></div>
-      <div class="brand-name">Bero</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/doordash.com" alt="DoorDash" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">DoorDash</span></div>
-      <div class="brand-name">DoorDash</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/fritolay.com" alt="Frito-Lay" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Frito-Lay</span></div>
-      <div class="brand-name">Frito-Lay</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/harmlessharvest.com" alt="Harmless Harvest" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Harmless Harvest</span></div>
-      <div class="brand-name">Harmless Harvest</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/mms.com" alt="M&amp;M's" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">M&amp;M's</span></div>
-      <div class="brand-name">M&amp;M's</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/mcdonalds.com" alt="McDonald's" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">McDonald's</span></div>
-      <div class="brand-name">McDonald's</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/onnit.com" alt="Onnit" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Onnit</span></div>
-      <div class="brand-name">Onnit</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/raisingcanes.com" alt="Raising Cane's" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Raising Cane's</span></div>
-      <div class="brand-name">Raising Cane's</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/ruffles.com" alt="Ruffles" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Ruffles</span></div>
-      <div class="brand-name">Ruffles</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/siggis.com" alt="Siggi's" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Siggi's</span></div>
-      <div class="brand-name">Siggi's</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/tacojohns.com" alt="Taco John's" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Taco John's</span></div>
-      <div class="brand-name">Taco John's</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/tostitos.com" alt="Tostitos" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Tostitos</span></div>
-      <div class="brand-name">Tostitos</div>
-    </div>
-
-    <div class="brand-card" data-category="food">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/yeslywater.com" alt="Yesly Water" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Yesly Water</span></div>
-      <div class="brand-name">Yesly Water</div>
-    </div>
+    <a class="brand-card" href="brand-1-800-flowers.html" data-category="food"><div class="brand-name">1-800-Flowers</div></a>
+    <a class="brand-card" href="brand-7-eleven.html" data-category="food"><div class="brand-name">7-Eleven</div></a>
+    <a class="brand-card" href="brand-biosteel.html" data-category="food"><div class="brand-name">BioSteel</div></a>
+    <a class="brand-card" href="brand-c4-energy.html" data-category="food"><div class="brand-name">C4 Energy</div></a>
+    <a class="brand-card" href="brand-cava.html" data-category="food"><div class="brand-name">CAVA</div></a>
+    <a class="brand-card" href="brand-bero.html" data-category="food"><div class="brand-name">Bero</div></a>
+    <a class="brand-card" href="brand-doordash.html" data-category="food"><div class="brand-name">DoorDash</div></a>
+    <a class="brand-card" href="brand-frito-lay.html" data-category="food"><div class="brand-name">Frito-Lay</div></a>
+    <a class="brand-card" href="brand-harmless-harvest.html" data-category="food"><div class="brand-name">Harmless Harvest</div></a>
+    <a class="brand-card" href="brand-mms.html" data-category="food"><div class="brand-name">M&amp;M's</div></a>
+    <a class="brand-card" href="brand-mcdonalds.html" data-category="food"><div class="brand-name">McDonald's</div></a>
+    <a class="brand-card" href="brand-onnit.html" data-category="food"><div class="brand-name">Onnit</div></a>
+    <a class="brand-card" href="brand-raising-canes.html" data-category="food"><div class="brand-name">Raising Cane's</div></a>
+    <a class="brand-card" href="brand-ruffles.html" data-category="food"><div class="brand-name">Ruffles</div></a>
+    <a class="brand-card" href="brand-siggis.html" data-category="food"><div class="brand-name">Siggi's</div></a>
+    <a class="brand-card" href="brand-taco-johns.html" data-category="food"><div class="brand-name">Taco John's</div></a>
+    <a class="brand-card" href="brand-tostitos.html" data-category="food"><div class="brand-name">Tostitos</div></a>
+    <a class="brand-card" href="brand-yesly-water.html" data-category="food"><div class="brand-name">Yesly Water</div></a>
 
     <!-- APPAREL & FOOTWEAR -->
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/adidas.com" alt="adidas" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">adidas</span></div>
-      <div class="brand-name">adidas</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/armani.com" alt="Armani" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Armani</span></div>
-      <div class="brand-name">Armani</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/brooksrunning.com" alt="Brooks" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Brooks</span></div>
-      <div class="brand-name">Brooks</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/clarks.com" alt="Clarks" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Clarks</span></div>
-      <div class="brand-name">Clarks</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/coach.com" alt="Coach" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Coach</span></div>
-      <div class="brand-name">Coach</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/crocs.com" alt="CROCS" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">CROCS</span></div>
-      <div class="brand-name">CROCS</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/dkny.com" alt="DKNY" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">DKNY</span></div>
-      <div class="brand-name">DKNY</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/freepeople.com" alt="Free People Movement" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Free People</span></div>
-      <div class="brand-name">Free People Movement</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/goodr.com" alt="GOODR" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">GOODR</span></div>
-      <div class="brand-name">GOODR</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/haggar.com" alt="Haggar" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Haggar</span></div>
-      <div class="brand-name">Haggar</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/heydude.com" alt="Hey Dude" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Hey Dude</span></div>
-      <div class="brand-name">Hey Dude</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/hollisterco.com" alt="Hollister" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Hollister</span></div>
-      <div class="brand-name">Hollister</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/knockaround.com" alt="Knockaround" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Knockaround</span></div>
-      <div class="brand-name">Knockaround</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/lulus.com" alt="Lulus" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Lulus</span></div>
-      <div class="brand-name">Lulus</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/psdunderwear.com" alt="PSD Underwear" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">PSD Underwear</span></div>
-      <div class="brand-name">PSD Underwear</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/reebok.com" alt="Reebok" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Reebok</span></div>
-      <div class="brand-name">Reebok</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/stevemadden.com" alt="Steve Madden" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Steve Madden</span></div>
-      <div class="brand-name">Steve Madden</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/thighsociety.com" alt="Thigh Society" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Thigh Society</span></div>
-      <div class="brand-name">Thigh Society</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/tlfapparel.com" alt="TLF Apparel" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">TLF Apparel</span></div>
-      <div class="brand-name">TLF Apparel</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/urbanoutfitters.com" alt="Urban Outfitters" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Urban Outfitters</span></div>
-      <div class="brand-name">Urban Outfitters</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/yorkathletics.com" alt="York Athletics" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">York Athletics</span></div>
-      <div class="brand-name">York Athletics</div>
-    </div>
-
-    <div class="brand-card" data-category="apparel">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/34heritage.com" alt="34 Heritage" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">34 Heritage</span></div>
-      <div class="brand-name">34 Heritage</div>
-    </div>
+    <a class="brand-card" href="brand-adidas.html" data-category="apparel"><div class="brand-name">adidas</div></a>
+    <a class="brand-card" href="brand-armani.html" data-category="apparel"><div class="brand-name">Armani</div></a>
+    <a class="brand-card" href="brand-brooks.html" data-category="apparel"><div class="brand-name">Brooks</div></a>
+    <a class="brand-card" href="brand-clarks.html" data-category="apparel"><div class="brand-name">Clarks</div></a>
+    <a class="brand-card" href="brand-coach.html" data-category="apparel"><div class="brand-name">Coach</div></a>
+    <a class="brand-card" href="brand-crocs.html" data-category="apparel"><div class="brand-name">CROCS</div></a>
+    <a class="brand-card" href="brand-dkny.html" data-category="apparel"><div class="brand-name">DKNY</div></a>
+    <a class="brand-card" href="brand-free-people.html" data-category="apparel"><div class="brand-name">Free People Movement</div></a>
+    <a class="brand-card" href="brand-goodr.html" data-category="apparel"><div class="brand-name">GOODR</div></a>
+    <a class="brand-card" href="brand-haggar.html" data-category="apparel"><div class="brand-name">Haggar</div></a>
+    <a class="brand-card" href="brand-hey-dude.html" data-category="apparel"><div class="brand-name">Hey Dude</div></a>
+    <a class="brand-card" href="brand-hollister.html" data-category="apparel"><div class="brand-name">Hollister</div></a>
+    <a class="brand-card" href="brand-knockaround.html" data-category="apparel"><div class="brand-name">Knockaround</div></a>
+    <a class="brand-card" href="brand-lulus.html" data-category="apparel"><div class="brand-name">Lulus</div></a>
+    <a class="brand-card" href="brand-psd-underwear.html" data-category="apparel"><div class="brand-name">PSD Underwear</div></a>
+    <a class="brand-card" href="brand-reebok.html" data-category="apparel"><div class="brand-name">Reebok</div></a>
+    <a class="brand-card" href="brand-steve-madden.html" data-category="apparel"><div class="brand-name">Steve Madden</div></a>
+    <a class="brand-card" href="brand-thigh-society.html" data-category="apparel"><div class="brand-name">Thigh Society</div></a>
+    <a class="brand-card" href="brand-tlf-apparel.html" data-category="apparel"><div class="brand-name">TLF Apparel</div></a>
+    <a class="brand-card" href="brand-urban-outfitters.html" data-category="apparel"><div class="brand-name">Urban Outfitters</div></a>
+    <a class="brand-card" href="brand-york-athletics.html" data-category="apparel"><div class="brand-name">York Athletics</div></a>
+    <a class="brand-card" href="brand-34-heritage.html" data-category="apparel"><div class="brand-name">34 Heritage</div></a>
 
     <!-- BEAUTY & WELLNESS -->
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/cerave.com" alt="CeraVe" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">CeraVe</span></div>
-      <div class="brand-name">CeraVe</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/covergirl.com" alt="CoverGirl" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">CoverGirl</span></div>
-      <div class="brand-name">CoverGirl</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/dove.com" alt="Dove" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Dove</span></div>
-      <div class="brand-name">Dove</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/gillette.com" alt="Gillette" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Gillette</span></div>
-      <div class="brand-name">Gillette</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/hydroflask.com" alt="Hydro Flask" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Hydro Flask</span></div>
-      <div class="brand-name">Hydro Flask</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/iherb.com" alt="iHerb" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">iHerb</span></div>
-      <div class="brand-name">iHerb</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/sensationnel.com" alt="Sensationnel" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Sensationnel</span></div>
-      <div class="brand-name">Sensationnel</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/stanley1913.com" alt="Stanley" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Stanley</span></div>
-      <div class="brand-name">Stanley</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/tangleteezer.com" alt="Tangle Teezer" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Tangle Teezer</span></div>
-      <div class="brand-name">Tangle Teezer</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/thayers.com" alt="Thayers" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Thayers</span></div>
-      <div class="brand-name">Thayers</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/tylenol.com" alt="Tylenol" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Tylenol</span></div>
-      <div class="brand-name">Tylenol</div>
-    </div>
-
-    <div class="brand-card" data-category="beauty">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/verbproducts.com" alt="Verb" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Verb</span></div>
-      <div class="brand-name">Verb</div>
-    </div>
+    <a class="brand-card" href="brand-cerave.html" data-category="beauty"><div class="brand-name">CeraVe</div></a>
+    <a class="brand-card" href="brand-covergirl.html" data-category="beauty"><div class="brand-name">CoverGirl</div></a>
+    <a class="brand-card" href="brand-dove.html" data-category="beauty"><div class="brand-name">Dove</div></a>
+    <a class="brand-card" href="brand-gillette.html" data-category="beauty"><div class="brand-name">Gillette</div></a>
+    <a class="brand-card" href="brand-hydro-flask.html" data-category="beauty"><div class="brand-name">Hydro Flask</div></a>
+    <a class="brand-card" href="brand-iherb.html" data-category="beauty"><div class="brand-name">iHerb</div></a>
+    <a class="brand-card" href="brand-sensationnel.html" data-category="beauty"><div class="brand-name">Sensationnel</div></a>
+    <a class="brand-card" href="brand-stanley.html" data-category="beauty"><div class="brand-name">Stanley</div></a>
+    <a class="brand-card" href="brand-tangle-teezer.html" data-category="beauty"><div class="brand-name">Tangle Teezer</div></a>
+    <a class="brand-card" href="brand-thayers.html" data-category="beauty"><div class="brand-name">Thayers</div></a>
+    <a class="brand-card" href="brand-tylenol.html" data-category="beauty"><div class="brand-name">Tylenol</div></a>
+    <a class="brand-card" href="brand-verb.html" data-category="beauty"><div class="brand-name">Verb</div></a>
 
     <!-- TECH & ENTERTAINMENT -->
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/music.amazon.com" alt="Amazon Music" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Amazon Music</span></div>
-      <div class="brand-name">Amazon Music</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/capitolrecords.com" alt="Capitol Records" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Capitol Records</span></div>
-      <div class="brand-name">Capitol Records</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/focusfeatures.com" alt="Focus Features" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Focus Features</span></div>
-      <div class="brand-name">Focus Features</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/fractureme.com" alt="Fracture" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Fracture</span></div>
-      <div class="brand-name">Fracture</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/gametime.co" alt="Gametime" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Gametime</span></div>
-      <div class="brand-name">Gametime</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/monday.com" alt="Monday" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Monday</span></div>
-      <div class="brand-name">Monday</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/quizlet.com" alt="Quizlet" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Quizlet</span></div>
-      <div class="brand-name">Quizlet (Microsoft)</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/ticketmaster.com" alt="Ticketmaster" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Ticketmaster</span></div>
-      <div class="brand-name">Ticketmaster</div>
-    </div>
-
-    <div class="brand-card" data-category="tech">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/universalmusic.com" alt="Universal Music Group" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Universal Music</span></div>
-      <div class="brand-name">Universal Music Group</div>
-    </div>
+    <a class="brand-card" href="brand-amazon-music.html" data-category="tech"><div class="brand-name">Amazon Music</div></a>
+    <a class="brand-card" href="brand-capitol-records.html" data-category="tech"><div class="brand-name">Capitol Records</div></a>
+    <a class="brand-card" href="brand-focus-features.html" data-category="tech"><div class="brand-name">Focus Features</div></a>
+    <a class="brand-card" href="brand-fracture.html" data-category="tech"><div class="brand-name">Fracture</div></a>
+    <a class="brand-card" href="brand-gametime.html" data-category="tech"><div class="brand-name">Gametime</div></a>
+    <a class="brand-card" href="brand-monday.html" data-category="tech"><div class="brand-name">Monday</div></a>
+    <a class="brand-card" href="brand-quizlet.html" data-category="tech"><div class="brand-name">Quizlet (Microsoft)</div></a>
+    <a class="brand-card" href="brand-ticketmaster.html" data-category="tech"><div class="brand-name">Ticketmaster</div></a>
+    <a class="brand-card" href="brand-universal-music.html" data-category="tech"><div class="brand-name">Universal Music Group</div></a>
 
     <!-- SPORTS & FITNESS -->
-    <div class="brand-card" data-category="sports">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/con-cret.com" alt="Con-Cret" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Con-Cret</span></div>
-      <div class="brand-name">Con-Cret Creatine</div>
-    </div>
-
-    <div class="brand-card" data-category="sports">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/easton.com" alt="Easton" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Easton</span></div>
-      <div class="brand-name">Easton</div>
-    </div>
-
-    <div class="brand-card" data-category="sports">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/rawlings.com" alt="Rawlings" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Rawlings</span></div>
-      <div class="brand-name">Rawlings</div>
-    </div>
-
-    <div class="brand-card" data-category="sports">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/statsports.com" alt="STAT Sports" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">STAT Sports</span></div>
-      <div class="brand-name">STAT Sports</div>
-    </div>
-
-    <div class="brand-card" data-category="sports">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/vfoundation.org" alt="V Foundation" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">V Foundation</span></div>
-      <div class="brand-name">V Foundation</div>
-    </div>
-
-    <div class="brand-card" data-category="sports coming-soon">
+    <a class="brand-card" href="brand-con-cret.html" data-category="sports"><div class="brand-name">Con-Cret Creatine</div></a>
+    <a class="brand-card" href="brand-easton.html" data-category="sports"><div class="brand-name">Easton</div></a>
+    <a class="brand-card" href="brand-rawlings.html" data-category="sports"><div class="brand-name">Rawlings</div></a>
+    <a class="brand-card" href="brand-stat-sports.html" data-category="sports"><div class="brand-name">STAT Sports</div></a>
+    <a class="brand-card" href="brand-v-foundation.html" data-category="sports"><div class="brand-name">V Foundation</div></a>
+    <a class="brand-card" href="brand-gat-sports.html" data-category="sports">
       <div class="coming-soon-badge">Coming Soon</div>
-      <div class="brand-logo-wrap"><span class="brand-name-fallback">GAT Sports</span></div>
       <div class="brand-name">GAT Sports</div>
-    </div>
+    </a>
 
     <!-- RETAIL & LIFESTYLE -->
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/allstate.com" alt="Allstate" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Allstate</span></div>
-      <div class="brand-name">Allstate</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/cvs.com" alt="CVS Pharmacy" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">CVS Pharmacy</span></div>
-      <div class="brand-name">CVS Pharmacy</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/dickssportinggoods.com" alt="Dick's Sporting Goods" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Dick's</span></div>
-      <div class="brand-name">Dick's Sporting Goods</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/flaminhot.com" alt="Flamin' Hot" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Flamin' Hot</span></div>
-      <div class="brand-name">Flamin' Hot</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/jewlr.com" alt="Jewlr" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Jewlr</span></div>
-      <div class="brand-name">Jewlr</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/momentec.com" alt="Momentec" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">Momentec</span></div>
-      <div class="brand-name">Momentec</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><img src="https://logo.clearbit.com/bobhotels.com" alt="BOB Hotels" onerror="this.classList.add('logo-error')"><span class="brand-name-fallback">BOB Hotels</span></div>
-      <div class="brand-name">BOB Hotels</div>
-    </div>
-
-    <div class="brand-card" data-category="retail coming-soon">
+    <a class="brand-card" href="brand-allstate.html" data-category="retail"><div class="brand-name">Allstate</div></a>
+    <a class="brand-card" href="brand-bob-hotels.html" data-category="retail"><div class="brand-name">BOB Hotels</div></a>
+    <a class="brand-card" href="brand-cvs.html" data-category="retail"><div class="brand-name">CVS Pharmacy</div></a>
+    <a class="brand-card" href="brand-dicks.html" data-category="retail"><div class="brand-name">Dick's Sporting Goods</div></a>
+    <a class="brand-card" href="brand-flamin-hot.html" data-category="retail"><div class="brand-name">Flamin' Hot</div></a>
+    <a class="brand-card" href="brand-jewlr.html" data-category="retail"><div class="brand-name">Jewlr</div></a>
+    <a class="brand-card" href="brand-momentec.html" data-category="retail"><div class="brand-name">Momentec</div></a>
+    <a class="brand-card" href="brand-3h.html" data-category="retail"><div class="brand-name">3H</div></a>
+    <a class="brand-card" href="brand-bh.html" data-category="retail"><div class="brand-name">BH</div></a>
+    <a class="brand-card" href="brand-holo.html" data-category="retail"><div class="brand-name">Holo</div></a>
+    <a class="brand-card" href="brand-ce.html" data-category="retail">
       <div class="coming-soon-badge">Coming Soon</div>
-      <div class="brand-logo-wrap"><span class="brand-name-fallback">CE</span></div>
       <div class="brand-name">CE</div>
-    </div>
-
-    <!-- Brands with less-known domains — show name fallback -->
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><span class="brand-name-fallback">3H</span></div>
-      <div class="brand-name">3H</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><span class="brand-name-fallback">7</span></div>
-      <div class="brand-name">7</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><span class="brand-name-fallback" style="font-size:13px;">BH</span></div>
-      <div class="brand-name">BH</div>
-    </div>
-
-    <div class="brand-card" data-category="retail">
-      <div class="brand-logo-wrap"><span class="brand-name-fallback">Holo</span></div>
-      <div class="brand-name">Holo</div>
-    </div>
+    </a>
 
   </div>
 </div>
-
 <!-- CTA -->
 <div class="cta-wrap">
   <div class="cta-inner">
@@ -625,14 +308,7 @@
     });
   });
 
-  // Handle logo load errors — show name fallback
-  document.querySelectorAll('.brand-logo-wrap img').forEach(img => {
-    img.addEventListener('error', function() {
-      this.classList.add('logo-error');
-      const fallback = this.nextElementSibling;
-      if (fallback) fallback.style.display = 'block';
-    });
-  });
+
 </script>
 </body>
 </html>
