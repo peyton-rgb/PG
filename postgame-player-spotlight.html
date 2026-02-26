@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jordan Williams — Player Spotlight · Postgame</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
   :root {
     --orange: #D73F09;
@@ -17,7 +17,7 @@
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--white); font-family: Arial, Helvetica, sans-serif; overflow-x: hidden;  font-size:24px; line-height:1.4;}
+  body { background: var(--black); color: var(--white); font-family: 'DM Sans', Arial, sans-serif; overflow-x: hidden; }
 
   /* ── NAV ── */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(0,0,0,0); backdrop-filter: blur(0px); border-bottom: 1px solid rgba(255,255,255,0); transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s; }
@@ -32,13 +32,13 @@
   .nav-chevron { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
   .nav-item:hover .nav-chevron { transform: rotate(180deg); }
   .nav-dropdown { position: absolute; top: calc(100% + 8px); left: 0; min-width: 160px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: all 0.2s; box-shadow: 0 16px 40px rgba(0,0,0,0.6); z-index: 200; }
-  /* bridge */ .nav-item::after { content: ""; position: absolute; bottom: -10px; left: 0; right: 0; height: 10px; } .nav-item:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+  .nav-item:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
   .nav-drop-item { display: block; padding: 12px 18px; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; transition: all 0.15s; border-bottom: 1px solid rgba(255,255,255,0.04); }
   .nav-drop-item:last-child { border-bottom: none; }
   .nav-drop-item:hover { background: rgba(255,255,255,0.05); color: var(--white); padding-left: 22px; }
-  .btn-primary { background: var(--orange); color: var(--white); border: none; border-radius: 8px; padding: 16px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-primary { background: var(--orange); color: var(--white); border: none; border-radius: 8px; padding: 14px 28px; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: #c03608; transform: translateY(-1px); }
-  .btn-tracker { background: var(--white); color: var(--black); border: none; border-radius: 8px; padding: 16px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-tracker { background: var(--white); color: var(--black); border: none; border-radius: 8px; padding: 14px 24px; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
   .btn-tracker:hover { background: rgba(255,255,255,0.88); transform: translateY(-1px); }
 
   /* ── HERO ── */
@@ -705,7 +705,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     letter-spacing: 0.04em;
   }
 
@@ -715,25 +715,25 @@
   .cta-block { background: var(--orange); padding: 100px 48px; text-align: center; }
   .cta-title { font-family: 'Bebas Neue', Arial, sans-serif; font-size: clamp(48px, 6vw, 72px); color: var(--white); line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 20px; }
   .cta-sub { font-size: 17px; color: rgba(255,255,255,0.75); margin-bottom: 40px; }
-  .cta-btns { margin-top: 8px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-white { background: var(--white); color: var(--orange); border: none; border-radius: 8px; padding: 16px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: var(--white); color: var(--orange); border: none; border-radius: 8px; padding: 16px 36px; font-family: 'DM Sans', Arial, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
   .btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
-  .btn-outline-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); border-radius: 8px; padding: 16px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .btn-outline-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); border-radius: 8px; padding: 16px 36px; font-family: 'DM Sans', Arial, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
   .btn-outline-white:hover { border-color: var(--white); transform: translateY(-1px); }
 
   /* ── FOOTER ── */
   footer { background: var(--gray); border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 48px 32px; }
   .footer-inner { max-width: 1200px; margin: 0 auto; }
   .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
-  .footer-brand-desc { font-size: 18px; color: rgba(255,255,255,0.35); line-height: 1.2; margin-top: 16px; max-width: 280px; }
-  .footer-col-title { font-size: 18px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 24px; }
+  .footer-brand-desc { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; margin-top: 16px; max-width: 280px; }
+  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 24px; }
   .footer-links { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 18px; transition: color 0.2s; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
   .footer-links a:hover { color: var(--white); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; }
-  .footer-copy { font-size: 18px; color: rgba(255,255,255,0.2); }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); }
   .footer-socials { display: flex; gap: 24px; }
-  .footer-socials a { font-size: 18px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-socials a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
   .footer-socials a:hover { color: var(--orange); }
 
   /* Animations */
@@ -742,45 +742,21 @@
   .hero-name { animation: fadeUp 0.6s ease 0.2s both; }
   .hero-meta { animation: fadeUp 0.6s ease 0.35s both; }
   .hero-stats { animation: fadeUp 0.6s ease 0.45s both; }
-
-  /* ── MOBILE TYPOGRAPHY ── */
-  @media (max-width: 768px) {
-    body { font-size: 14px !important; line-height: 1.4 !important; }
-    .hero-positioning, .hero-sub, .body-text, .recap-text,
-    .feature-text-body, .how-step-body, .case-desc,
-    .cta-sub { font-size: 14px !important; line-height: 1.4 !important; }
-    .hero-eyebrow, .section-label, .section-eyebrow { font-size: 10px !important; }
-    .nav-item > a, .nav-drop-item { font-size: 12px !important; }
-    .btn-primary, .btn-tracker, .btn-accent, .btn-ghost,
-    .btn-white, .btn-outline-white, .btn-dark, .btn-outline-dark,
-    .btn-sm { font-size: 13px !important; padding: 12px 24px !important; }
-    footer, .footer-links a, .footer-brand-desc, .footer-copy,
-    .footer-socials a, .footer-col-title { font-size: 11px !important; line-height: 1.2 !important; }
-    .hero-title { font-size: clamp(36px, 12vw, 64px) !important; }
-    .section-title { font-size: clamp(28px, 8vw, 40px) !important; }
-    .cta-title { font-size: clamp(36px, 10vw, 56px) !important; }
-    .campaign-card-title { font-size: 18px !important; }
-    .campaign-card-brand { font-size: 9px !important; }
-    .all-campaign-row { font-size: 13px !important; }
-    .acr-date, .acr-brand { font-size: 11px !important; }
-    .acr-name { font-size: 13px !important; }
-  }
-
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="index.html" class="logo"><img src="postgame-logo.png" alt="Postgame" style="height:36px;width:auto;"></a>
+  <a href="postgame-homepage.html" class="logo"><img src="postgame-logo.png" alt="Postgame" style="height:32px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li class="nav-item has-dropdown">
-      <a href="postgame-clients.html">Brands <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-      <div class="nav-dropdown"><a href="postgame-clients.html" class="nav-drop-item">Clients</a><a href="postgame-campaigns.html" class="nav-drop-item">Campaigns</a></div>
+      <a href="postgame-brand-profile.html">Brands <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-dropdown"><a href="postgame-brand-profile.html" class="nav-drop-item">Clients</a><a href="postgame-campaign-recap.html" class="nav-drop-item">Campaigns</a></div>
     </li>
     <li class="nav-item has-dropdown">
       <a href="postgame-services-elevated.html">Services <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-      <div class="nav-dropdown"><a href="postgame-services-elevated.html" class="nav-drop-item">Elevated</a><a href="postgame-services-scaled.html" class="nav-drop-item">Scaled</a><a href="postgame-services-experiential.html" class="nav-drop-item">Experiential</a><a href="postgame-services-always-on.html" class="nav-drop-item">Always On</a></div>
+      <div class="nav-dropdown"><a href="postgame-services-elevated.html" class="nav-drop-item">Elevated</a><a href="postgame-services-scaled.html" class="nav-drop-item">Scaled</a><a href="postgame-services-experiential.html" class="nav-drop-item">Experiential</a></div>
     </li>
     <li class="nav-item has-dropdown">
       <a href="postgame-team.html">About <svg class="nav-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -863,9 +839,9 @@
         <div class="brand-section-label">Campaign 01</div>
         <div class="brand-name-row">
           <div class="brand-logo-placeholder">NK</div>
-          <div class="brand-title">Adidas</div>
+          <div class="brand-title">Nike</div>
         </div>
-        <div class="brand-campaign-name">You Got This — Campus Series</div>
+        <div class="brand-campaign-name">Just Do It — Campus Series</div>
         <div class="brand-tags">
           <span class="brand-tag orange">Brand Ambassador</span>
           <span class="brand-tag">Social Campaign</span>
@@ -884,7 +860,7 @@
       <div class="content-tile ct-1" data-format="vertical">
         <div class="content-tile-bg ct-1"></div><div class="tile-overlay"></div><div class="tile-play"><div class="play-btn"><div class="play-tri"></div></div></div>
         <div class="tile-type-badge">Reel · 60s</div>
-        <div class="tile-info"><div class="tile-platform">Instagram</div><div class="tile-caption">Lace-up. Show up. You Got This.</div></div>
+        <div class="tile-info"><div class="tile-platform">Instagram</div><div class="tile-caption">Lace-up. Show up. Just Do It.</div></div>
       </div>
       <div class="content-tile ct-2" data-format="vertical">
         <div class="content-tile-bg ct-2"></div><div class="tile-overlay"></div><div class="tile-play"><div class="play-btn"><div class="play-tri"></div></div></div>
@@ -904,7 +880,7 @@
     </template>
 
     <div class="brand-footer-strip">
-      <a href="postgame-campaigns.html" class="brand-footer-link">View Full Campaign →</a>
+      <a href="postgame-campaign-recap.html" class="brand-footer-link">View Full Campaign →</a>
     </div>
   </div>
 
@@ -971,7 +947,7 @@
     </template>
 
     <div class="brand-footer-strip">
-      <a href="postgame-campaigns.html" class="brand-footer-link">View Full Campaign →</a>
+      <a href="postgame-campaign-recap.html" class="brand-footer-link">View Full Campaign →</a>
     </div>
   </div>
 
@@ -1017,7 +993,7 @@
     </template>
 
     <div class="brand-footer-strip">
-      <a href="postgame-campaigns.html" class="brand-footer-link">View Full Campaign →</a>
+      <a href="postgame-campaign-recap.html" class="brand-footer-link">View Full Campaign →</a>
     </div>
   </div>
 
@@ -1040,11 +1016,11 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <a href="index.html" class="logo" style="display:inline-flex;margin-bottom:16px"><img src="postgame-logo.png" alt="Postgame" style="height:28px;width:auto;"></a>
+        <a href="postgame-homepage.html" class="logo" style="display:inline-block;margin-bottom:16px"><img src="postgame-logo.png" alt="Postgame" style="height:28px;width:auto;display:block;"></a>
         <p class="footer-brand-desc">The #1 NIL agency in the country. Connecting elite college athletes with the world's most ambitious brands.</p>
       </div>
       <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="postgame-team.html">About</a></li><li><a href="postgame-services-elevated.html">Services</a></li><li><a href="postgame-team.html">Our Team</a></li><li><a href="postgame-contact.html">Contact</a></li></ul></div>
-      <div><div class="footer-col-title">Network</div><ul class="footer-links"><li><a href="postgame-clients.html">Clients</a></li><li><a href="postgame-campaigns.html">Campaigns</a></li><li><a href="postgame-tier1-tracker.html">Deal Tracker</a></li><li><a href="postgame-player-spotlight.html">Player Spotlight</a></li></ul></div>
+      <div><div class="footer-col-title">Network</div><ul class="footer-links"><li><a href="postgame-brand-profile.html">Clients</a></li><li><a href="postgame-campaign-recap.html">Campaigns</a></li><li><a href="postgame-tier1-tracker.html">Deal Tracker</a></li><li><a href="postgame-player-spotlight.html">Player Spotlight</a></li></ul></div>
       <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">LinkedIn</a></li></ul></div>
     </div>
     <div class="footer-bottom">
